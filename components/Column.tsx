@@ -1,6 +1,7 @@
 import { useDroppable } from '@dnd-kit/core';
 import { useTaskStore, Status } from '../app/store/useStore';
 import { Task } from '../app/store/useStore';
+import CreateTaskButton from './CreateTaskButton';
 import TaskCard from './TaskCard';
 
 export default function Column(
@@ -15,9 +16,15 @@ return (
       {/* The Droppable Area */}
       <div ref={setNodeRef} className="flex-1 flex flex-col gap-4">
         {tasks.map((task) => (
-          <TaskCard key={task.id} task={task} />
+        <>
+            <TaskCard key={task.id} task={task} />
+
+        </>
         ))}
       </div>
+      {id === 'TODO' && 
+        (<CreateTaskButton status={id} />)
+}
     </div>
   );
 }
