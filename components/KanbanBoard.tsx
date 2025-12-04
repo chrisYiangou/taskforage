@@ -1,14 +1,14 @@
 'use client'
 
-import {useTaskStore, Status} from '@/app/store/useStore';
+import { useTaskStore, Status } from '@/app/store/useStore';
 import { useEffect, useState } from 'react';
 import Column from './Column'; //Make later
-import { DndContext, DragEndEvent} from '@dnd-kit/core'
+import { DndContext, DragEndEvent } from '@dnd-kit/core'
 
-const COLUMNS: { id: Status; title: string}[] = [
-    {id: 'TODO', title: 'To Do'},
-    {id: 'IN_PROGRESS', title: 'In Progress'},
-    {id: 'DONE', title: 'Done'},
+const COLUMNS: { id: Status; title: string }[] = [
+    { id: 'TODO', title: 'To Do' },
+    { id: 'IN_PROGRESS', title: 'In Progress' },
+    { id: 'DONE', title: 'Done' },
 ];
 
 export default function KanbanBoard() {
