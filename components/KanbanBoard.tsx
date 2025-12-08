@@ -15,13 +15,7 @@ export default function KanbanBoard() {
     const tasks = useTaskStore((state) => state.tasks);
     const moveTask = useTaskStore((state) => state.moveTask);
 
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => {
-        useTaskStore.persist.rehydrate();
-        setMounted(true);
-    }, []);
-
-    if (!mounted) return null; //In case of hydration mismatch
+   
 
     function handleDragEnd(event: DragEndEvent) {
         const { active, over } = event;

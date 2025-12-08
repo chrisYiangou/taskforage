@@ -4,14 +4,13 @@ import { useState } from 'react';
 export default function CreateTaskButton({status}: {status: Status}) {
     const addTask = useTaskStore((state) => state.addTask);
     const [title, setTitle] = useState('');
-    const [showForm, setShowForm] = useState(false);
+   
 
     const handleClick = (e:React.FormEvent) => {
         e.preventDefault();
         if (title.trim()) {
             addTask(title.trim(), status)
             setTitle('');
-            setShowForm(false);
         }
     }
     return (
@@ -27,7 +26,7 @@ export default function CreateTaskButton({status}: {status: Status}) {
             onClick={handleClick}
         >
             {/* You'll likely put the "Plus" icon and text here */}
-            Create New Task
+            Create New Task +
         </button>
     )
 }

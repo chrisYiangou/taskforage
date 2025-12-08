@@ -1,5 +1,5 @@
 import { useDraggable } from '@dnd-kit/core';
-import { Task } from '@/store/useStore';
+import { Task } from '../app/store/useStore';
 
 export default function TaskCard({ task }: { task: Task }) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
