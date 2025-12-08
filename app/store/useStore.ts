@@ -17,9 +17,9 @@ export type State = {
 };
 
 export type Actions = {
-    addTask: (title: string, status: Status) => void;
+    addTask: (title: string, description: string | undefined, status: Status) => void;
     removeTask: (id: string) => void;
-    updateTask: (id: string, newStatus: Status) => void;
+    updateTask: (id: string, description: string | undefined, newStatus: Status) => void;
     dragTask: (id: string | null) => void;
     moveTask: (id: string, newStatus: Status) => void;
 };
@@ -29,18 +29,18 @@ export const useTaskStore = create<State & Actions>()(
     (set) => ({
       tasks: [],
       draggedTaskId: null,
-      addTask: (title, status) =>
+      addTask: (title, description, status) =>
         set((state) => ({
-          tasks: [...state.tasks, { id: uuidv4(), title, status }],
+          tasks: [...state.tasks, { id: uuidv4(), title, description, status }],
         })),
       removeTask: (id) =>
         set((state) => ({
           tasks: state.tasks.filter((task) => task.id !== id),
         })),
-      updateTask: (id, status) =>
+      updateTask: (id, description, status) =>
         set((state) => ({
           tasks: state.tasks.map((task) =>
-            task.id === id ? { ...task, status } : task
+            task.id === id ? { ...task, description,status } : task
           ),
         })),
       dragTask: (id) => set({ draggedTaskId: id }),
