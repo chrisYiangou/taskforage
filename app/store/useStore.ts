@@ -53,7 +53,6 @@ export const useTaskStore = create<State & Actions>()(
     }),
     {
       name: 'task-store', // Unique name for Local Storage
-      skipHydration: true, // We will handle hydration manually to avoid server/client mismatch errors
     }
   )
 );

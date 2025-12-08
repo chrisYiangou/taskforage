@@ -1,7 +1,7 @@
 'use client'
 
 import { useTaskStore, Status } from '@/app/store/useStore';
-import Column from './Column'; //Make later
+import Column from './Column';
 import { DndContext, DragEndEvent } from '@dnd-kit/core'
 
 const COLUMNS: { id: Status; title: string }[] = [

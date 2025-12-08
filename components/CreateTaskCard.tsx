@@ -31,7 +31,10 @@ export default function CreateTaskCard({ status, onClose }: Props) {
     };
 
     return (
-        <div className="w-full p-3 mt-4 bg-neutral-700 rounded-lg border border-neutral-600 shadow-xl">
+        <div className="w-full p-3 mt-4
+         bg-neutral-700 rounded-lg 
+         border border-neutral-600 
+         shadow-xl resize">
             <input
                 autoFocus
                 className="w-full bg-transparent text-white placeholder-neutral-400 focus:outline-none mb-3"
