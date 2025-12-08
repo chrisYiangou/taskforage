@@ -1,7 +1,6 @@
 'use client'
 
 import { useTaskStore, Status } from '@/app/store/useStore';
-import { useEffect, useState } from 'react';
 import Column from './Column'; //Make later
 import { DndContext, DragEndEvent } from '@dnd-kit/core'
 
@@ -14,8 +13,6 @@ const COLUMNS: { id: Status; title: string }[] = [
 export default function KanbanBoard() {
     const tasks = useTaskStore((state) => state.tasks);
     const moveTask = useTaskStore((state) => state.moveTask);
-
-   
 
     function handleDragEnd(event: DragEndEvent) {
         const { active, over } = event;
