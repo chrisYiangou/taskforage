@@ -11,11 +11,12 @@ interface Props {
 
 export default function CreateTaskCard({ status, onClose }: Props) {
     const addTask = useTaskStore((state) => state.addTask);
+    const description = undefined; // Description is optional and not included in this card
     const [title, setTitle] = useState(''); // No prop needed, starts empty
     
     const handleSubmit = () => {
         if (title.trim()) {
-            addTask(title.trim(), status);
+            addTask(title.trim(), description,status);
             setTitle('');
             onClose(); // 👈 Close the card after adding
         }
