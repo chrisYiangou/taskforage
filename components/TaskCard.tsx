@@ -1,5 +1,6 @@
 import { useDraggable } from '@dnd-kit/core';
 import { Task } from '../app/store/useStore';
+import EditCardWidget from './EditCardWidget';
 
 export default function TaskCard({ task }: { task: Task }) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
@@ -20,7 +21,13 @@ export default function TaskCard({ task }: { task: Task }) {
       {...attributes}
       className="bg-neutral-700 p-4 rounded shadow-md cursor-grab active:cursor-grabbing hover:bg-neutral-600 transition-colors"
     >
-      <h3 className="font-semibold">{task.title}</h3>
+      <div 
+        className='flex justify-around
+        text-align-center items-center'
+        >
+        <h3 className="font-semibold">{task.title}</h3>
+        <EditCardWidget />
+      </div>
       {task.description && <p className="text-sm text-gray-400 mt-1">{task.description}</p>}
     </div>
   );
